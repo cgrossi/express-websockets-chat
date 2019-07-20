@@ -64,6 +64,7 @@ body {
 
 .chat__message {
   flex-grow: 1;
+  overflow-y: scroll;
 }
 
 .compose {
