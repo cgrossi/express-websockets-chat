@@ -6,7 +6,6 @@ const $messageFormInput = $messageForm.querySelector('form input')
 const $messageFormButton = $messageForm.querySelector('form button')
 const $sendLocationButton = document.querySelector('#send-location')
 const $messages = document.querySelector('#messages')
-const $chatMessages = document.querySelector('.chat__message')
 
 // Templates
 const messageTemplate = document.querySelector('#message-template').innerHTML
@@ -18,30 +17,25 @@ const { username, room } = Qs.parse(location.search, { ignoreQueryPrefix: true }
 
 const autoscroll = () => {
   // Get new message element
-  const $newMessage = $chatMessages.lastElementChild
+  const $newMessage = $messages.lastElementChild
 
   // Height of the new message
   const newMessageStyles = getComputedStyle($newMessage)
-  const newMessageMargin = parseInt(newMessageStyles.marginBottom)
-  const newMessageHeight = $newMessage.offsetHeight + newMessageMargin
-
-  console.log($chatMessages)
+  const newMessageMargin = parseFloat(newMessageStyles.marginBottom)
+  const newMessageHeight = $newMessage.scrollHeight + newMessageMargin
 
   // Visible height
-  const visibleHeight = $chatMessages.offsetHeight
+  const visibleHeight = $messages.offsetHeight
 
   // Height of messages container
-  const containerHeight = $chatMessages.scrollHeight
+  const containerHeight = $messages.scrollHeight
 
   // How far have you scrolled?
-  const scrollOffset = $chatMessages.scrollTop + visibleHeight
-  console.log($chatMessages.scrollTop)
-  console.log(visibleHeight, containerHeight, newMessageHeight, scrollOffset)
+  const scrollOffset = Math.ceil($messages.scrollTop) + visibleHeight
 
   if(containerHeight - newMessageHeight <= scrollOffset) {
-    $chatMessages.scrollTop = $chatMessages.scrollHeight
+    $messages.scrollTop = $messages.scrollHeight
   }
-
 }
 
 socket.on('message', (message) => {

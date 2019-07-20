@@ -54,7 +54,6 @@ io.on('connection', (socket) => {
 
   socket.on('sendMessage', (message, callback) => {
     const user = getUser(socket.id)
-    console.log(user)
     const filter = new Filter()
     if(filter.isProfane(message)) {
       return callback('Profanity is not allowed')
@@ -71,7 +70,6 @@ io.on('connection', (socket) => {
 })
 
 app.get('/', (req, res) => {
-  console.log(req, res)
   res.send('index.html')
 })
 

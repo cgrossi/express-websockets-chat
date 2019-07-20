@@ -62,12 +62,13 @@ body {
   background: rgb(253, 253, 253);
 }
 
-.chat__message {
+.chat__messages {
   flex-grow: 1;
   overflow-y: scroll;
 }
 
 .compose {
+  margin-top: 15px;
   width: 100%;
   display: flex;
 }
@@ -97,12 +98,12 @@ button {
 }
 
 .user__meta {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: rgb(117, 117, 117);
 }
 
 .user__name {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
