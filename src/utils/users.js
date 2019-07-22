@@ -30,6 +30,7 @@ const addUser = ({ id, username, room }) => {
     room
   }
   users.push(user)
+
   return { user }
 }
 
@@ -37,10 +38,11 @@ const removeUser = (id) => {
   const index = users.findIndex(user => {
     return user.id === id
   })
-  
+
   if(index !== -1) {
     return users.splice(index, 1)[0]
   }
+
 }
 
 const getUser = (id) => users.find(user => user.id === id)
@@ -48,9 +50,27 @@ const getUser = (id) => users.find(user => user.id === id)
 
 const getUsersInRoom = (room) => users.filter(user => user.room === room)
 
+const getActiveRooms = () => {
+  const activeRooms = []
+  // if(users.length === 1) {
+  //   activeRooms.push(users[0].room)
+  //   return activeRooms
+  // }
+  if(users) {
+    users.forEach(user => {
+      if(!activeRooms.includes(user.room)) {
+        activeRooms.push({room: user.room})
+      }
+    })
+    return activeRooms
+  }
+}
+
+
 module.exports = {
   addUser,
   removeUser,
   getUser,
-  getUsersInRoom
+  getUsersInRoom,
+  getActiveRooms
 }

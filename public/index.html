@@ -15,10 +15,23 @@
         <label>Display name</label>
         <input type="text" name="username" placeholder="Display Name" required>
         <label>Room</label>
-        <input type="text" name="room" placeholder="Room" required>
+        <input id="room-field" type="text" name="room" placeholder="Room" required>
+        <label for="activeRooms">Join an active room</label>
+        <select id="activeRooms">
+        </select>
         <button>Join</button>
       </form>
     </div>
   </div>
+  <script id="active-room-template" type="text/html">
+    <option selected></option>
+    {{#rooms}}
+    <option value="{{room}}">{{room}}</option>
+    <!-- <p>{{room}}</p> -->
+    {{/rooms}}
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/join.js"></script>
 </body>
 </html>
