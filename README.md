@@ -2,6 +2,6 @@
 
 ## Features To Implement
 
-* Dropdown active room selection
+* ~~Dropdown active room selection~~
 
 ## Bugs
