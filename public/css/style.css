@@ -51,7 +51,22 @@ body {
 .chat__sidebar {
   width: 250px;
   border-right: 10px solid rgb(231, 230, 230);
-  background-color: rgb(37, 73, 102);
+  text-align: center;
+  background-color: rgb(54, 111, 158);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.chat__sidebar h2 {
+  background-color: steelblue;
+  padding: 20px 0;
+}
+
+.chat__sidebar h3 {
+  padding: 10px 0;
+}
+
+.chat__sidebar li {
+  padding: 5px 0;
 }
 
 .chat__main {
