@@ -32,11 +32,6 @@ const autoscroll = () => {
 
   // Current scroll amount
   const scrollOffset = Math.ceil($messages.scrollTop) + visibleHeight
-  console.log(scrollOffset)
-  console.log(newMessageHeight)
-  console.log($newMessage.offsetHeight)
-  console.log(newMessageStyles)
-
 
   if(containerHeight - newMessageHeight <= scrollOffset) {
     $messages.scrollTop = $messages.scrollHeight
@@ -44,7 +39,6 @@ const autoscroll = () => {
 }
 
 socket.on('message', (message) => {
-  console.log(message.text)
   const html = Mustache.render(messageTemplate, {
     username: message.username,
     message: message.text,
@@ -56,7 +50,6 @@ socket.on('message', (message) => {
 })
 
 socket.on('locationMessage', (message) => {
-  console.log(message)
   const html = Mustache.render(locationMessageTemplate, {
     username: message.username,
     url: message.url,

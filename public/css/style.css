@@ -14,7 +14,7 @@ body {
 
 .centered-form {
   width: 350px;
-  height: 400px;
+  min-height: 400px;
   padding: 15px;
   display: block;
   margin: 0 auto;
@@ -33,19 +33,27 @@ body {
   justify-content: space-between;
 }
 
+.centered-form h1 {
+  margin-bottom: 10px;
+}
+
 .centered-form form {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.centered-form input {
-  margin: 20px 0;
+.centered-form input,
+.centered-form select {
+  margin: 15px 0 20px;
 }
 
 .centered-form button {
   margin-left: 0;
-  margin-top: 20px;
+}
+
+.centered-form__box input[type="text"] {
+  padding-left: 5px;
 }
 
 .chat__sidebar {
@@ -100,6 +108,7 @@ body {
 }
 
 form input,
+select,
 button {
   height: 50px;
 }

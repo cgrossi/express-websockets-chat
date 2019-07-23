@@ -10,7 +10,6 @@ const $roomField = document.querySelector('#room-field')
 
 socket.on('activeRooms', ({rooms}) => {
   const html = Mustache.render(activeRoomTemplate, {rooms})
-  console.log(rooms)
   if(html) {
     $roomDropdown.innerHTML = html
   }

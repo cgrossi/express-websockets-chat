@@ -52,10 +52,6 @@ const getUsersInRoom = (room) => users.filter(user => user.room === room)
 
 const getActiveRooms = () => {
   const activeRooms = []
-  // if(users.length === 1) {
-  //   activeRooms.push(users[0].room)
-  //   return activeRooms
-  // }
   if(users) {
     users.forEach(user => {
       if(!activeRooms.includes(user.room)) {
